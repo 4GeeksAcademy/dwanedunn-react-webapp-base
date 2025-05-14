@@ -1,7 +1,16 @@
 import React from 'react';
+import storeReducer from '../store';
 
 const Contacts = () => {
-  return <div>Contacts</div>;
+  return (
+    <ul>
+        {store.Contacts.map(contact) => {
+            return (
+                <li key="{Contact.id}">{contact.name}</li>
+            )
+        }}
+    </ul>
+  )
 };
 
 export default Contacts;
