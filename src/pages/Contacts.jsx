@@ -8,8 +8,11 @@ export const Contacts = () => {
     const response = await fetch(url);
     const body = await response.json();
     if (!response.ok) {
-      console.error('Error fetching contacts:', response.statusText);
-      return;
+      throw new Error(`status:${response.status},message:${body}`);
+      dispatch({
+        type: 'SET_CONTACTS',
+        payload: body.contacts,
+      });
     }
   }
 
