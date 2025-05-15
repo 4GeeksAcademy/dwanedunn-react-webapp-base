@@ -1,5 +1,5 @@
 import React from 'react';
 
 export const AddContact = () => {
-  return <div>Hello AddContact</div>;
+  return <div>Add New Contact</div>;
 };
