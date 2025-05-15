@@ -2,7 +2,7 @@ import React from 'react';
 import storeReducer from '../store';
 
 const Contacts = () => {
-  return <div>Hello</div>;
+  return <div>Hello Contacts</div>;
 };
 
-export Contacts;
+export default Contacts;
