@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import storeReducer from '../store';
 
 export const Contacts = () => {
   const { store, dispatch } = useGlobalReducer();
+  async function fetchContacts() {
+    const url = `${store.BASE_URL}/${store.SLUB}`;
+    const response = await fetch(url);
+    const body = await response.json();
+    if (!response.ok) {
+      console.error('Error fetching contacts:', response.statusText);
+      return;
+    }
+  }
+
+  useEffect(() => {
+    fetchContacts();
+  }, []);
   return (
     <ul>
       {store.contacts.map((contact) => {
