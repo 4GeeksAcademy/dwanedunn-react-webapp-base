@@ -8,7 +8,7 @@ import {
 import { Layout } from './pages/Layout';
 
 // import { Contacts } from './pages/Contacts';
-import { Contacts } from './pages/Test';
+import { Test } from './pages/Test';
 import { AddContact } from './pages/AddContact';
 
 export const router = createBrowserRouter(
