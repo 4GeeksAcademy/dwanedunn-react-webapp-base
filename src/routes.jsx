@@ -7,7 +7,8 @@ import {
 } from 'react-router-dom';
 import { Layout } from './pages/Layout';
 
-import { Contacts } from './pages/Contacts';
+// import { Contacts } from './pages/Contacts';
+import { Contacts } from './pages/Test';
 import { AddContact } from './pages/AddContact';
 
 export const router = createBrowserRouter(
@@ -20,7 +21,8 @@ export const router = createBrowserRouter(
 
     // Root Route: All navigation will start from here.
     <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>}>
-      <Route path="/Contacts" element={<Contacts />} />
+      {/* <Route path="/Contacts" element={<Contacts />} /> */}
+      <Route path="/Contacts" element={<Test />} />
       <Route path="/AddContact" element={<AddContact />} />
     </Route>
   )
