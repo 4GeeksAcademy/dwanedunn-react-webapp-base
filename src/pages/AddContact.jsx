@@ -16,7 +16,7 @@ export const AddContact = () => {
       return;
     }
     // create request body
-    const body = {
+    const requestBody = {
       name: name,
       phone: phone,
       email: email,
@@ -30,7 +30,15 @@ export const AddContact = () => {
         'Content-Type': 'application/json',
         // Authorization: `Bearer ${store.TOKEN}`,
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify(requestBody),
+      if (!response.ok)throw new Error(`status: ${response.status},message: ${body}`)
+        // clear form
+        setName('');
+        setPhone('');
+        setEmail('');
+        setAddress('');
+
+      }
     });
   }
   return (
