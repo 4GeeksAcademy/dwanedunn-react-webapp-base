@@ -32,15 +32,16 @@ export const AddContact = () => {
         // Authorization: `Bearer ${store.TOKEN}`,
       },
       body: JSON.stringify(requestBody),
-      if (response.ok)throw new Error(`status: ${response.status},message: ${body}`)
-        // clear form
-        setName('');
-        setPhone('');
-        setEmail('');
-        setAddress('');
-
-      }
     });
+    if (!response.ok)
+      throw new Error(
+        `status: ${response.status}, message: ${response.statusText}`
+      );
+    // clear form
+    setName('');
+    setPhone('');
+    setEmail('');
+    setAddress('');
   }
   return (
     <div className="row">
