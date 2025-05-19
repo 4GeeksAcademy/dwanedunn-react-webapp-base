@@ -13,6 +13,7 @@ export const Contacts = () => {
     const response = await fetch(url);
     const body = await response.json();
     console.log('response:', response);
+
     if (!response.ok) {
       console.log('Error fetching contacts:', body);
       throw new Error(`status:${response.status},message:${body}`);
@@ -24,11 +25,16 @@ export const Contacts = () => {
   }
 
   useEffect(() => {
-    fetchContacts();
-  }, []);
+    if (store.BASE_URL && store.SLUG) {
+      fetchContacts().catch((err) => {
+        console.error('Failed to fetch contacts:', err);
+      });
+    }
+  }, [store.BASE_URL, store.SLUG]);
+
   return (
     <ul>
-      {store.contacts.map((contact) => {
+      {(Array.isArray(store.contacts) ? store.contacts : []).map((contact) => {
         return (
           <li key={contact.id}>
             <h2>{contact.name}</h2>
@@ -37,7 +43,7 @@ export const Contacts = () => {
           </li>
         );
       })}
-      {store.contacts.length === 0 && (
+      {(!store.contacts || store.contacts.length === 0) && (
         <li>
           <h2>No contacts found</h2>
         </li>
