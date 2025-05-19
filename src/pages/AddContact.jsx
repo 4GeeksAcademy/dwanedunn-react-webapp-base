@@ -2,7 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 
 import useGlobalReducer from '../hooks/useGlobalReducer';
-
+// https://playground.4geeks.com/contact/agendas/dwane_dunn/contacts'
+// slug: dwane_dunn
 export const AddContact = () => {
   const { store, dispatch } = useGlobalReducer();
   const [name, setName] = useState('');
@@ -31,7 +32,7 @@ export const AddContact = () => {
         // Authorization: `Bearer ${store.TOKEN}`,
       },
       body: JSON.stringify(requestBody),
-      if (!response.ok)throw new Error(`status: ${response.status},message: ${body}`)
+      if (response.ok)throw new Error(`status: ${response.status},message: ${body}`)
         // clear form
         setName('');
         setPhone('');
