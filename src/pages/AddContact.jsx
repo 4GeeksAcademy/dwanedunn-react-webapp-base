@@ -24,6 +24,7 @@ export const AddContact = () => {
       address: address,
     };
     const url = `${store.BASE_URL}/${store.SLUG}/contacts`; // api url
+    console.log('url:', url);
     // send request to api
     const response = await fetch(url, {
       method: 'POST',

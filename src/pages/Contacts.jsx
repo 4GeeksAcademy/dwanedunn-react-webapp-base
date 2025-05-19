@@ -9,6 +9,7 @@ export const Contacts = () => {
   const { store, dispatch } = useGlobalReducer();
   async function fetchContacts() {
     const url = `${store.BASE_URL}/${store.SLUG}`;
+    console.log('contacts url:', url);
     const response = await fetch(url);
     const body = await response.json();
     if (!response.ok) {
