@@ -12,7 +12,9 @@ export const Contacts = () => {
     console.log('contacts url:', url);
     const response = await fetch(url);
     const body = await response.json();
+    console.log('response:', response);
     if (!response.ok) {
+      console.log('Error fetching contacts:', body);
       throw new Error(`status:${response.status},message:${body}`);
       dispatch({
         type: 'SET_CONTACTS',
