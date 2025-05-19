@@ -8,7 +8,7 @@ import useGlobalReducer from '../hooks/useGlobalReducer'; // Custom hook for acc
 export const Contacts = () => {
   const { store, dispatch } = useGlobalReducer();
   async function fetchContacts() {
-    const url = `${store.BASE_URL}/${store.SLUB}`;
+    const url = `${store.BASE_URL}/${store.SLUG}`;
     const response = await fetch(url);
     const body = await response.json();
     if (!response.ok) {
