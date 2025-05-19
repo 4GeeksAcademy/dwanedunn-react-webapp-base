@@ -16,11 +16,11 @@ export const Contacts = () => {
     if (!response.ok) {
       console.log('Error fetching contacts:', body);
       throw new Error(`status:${response.status},message:${body}`);
-      dispatch({
-        type: 'SET_CONTACTS',
-        payload: body.contacts,
-      });
     }
+    dispatch({
+      type: 'SET_CONTACTS',
+      payload: body.contacts,
+    });
   }
 
   useEffect(() => {

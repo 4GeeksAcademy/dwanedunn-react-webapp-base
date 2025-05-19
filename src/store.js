@@ -2,7 +2,7 @@ export const initialStore = () => {
   return {
     BASE_URL: 'https://playground.4geeks.com/contact/agendas',
     SLUG: 'dwane_dunn',
-    contacts: [],
+    contacts: [{}, {}],
   };
 };
 
