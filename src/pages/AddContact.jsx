@@ -11,9 +11,7 @@ export const AddContact = () => {
   const [address, setAddress] = useState('');
 
   async function addContact() {
-    if (!name || !phone || !email || !address) {
-      alert('Please fill in all fields');
-      return;
+    if (name === "" || phone === "" || email === "" || address === "") throw new Error("Please fill in all fields");
     }
     // create request body
     const requestBody = {
