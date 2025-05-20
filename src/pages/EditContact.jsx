@@ -20,6 +20,10 @@ export const EditContact = () => {
     });
     if (!requiredContact) navigate('/contacts'); // // if no contact found, navigate to contacts page
     // if contact found, update the input with its values
+    setName(requiredContact.name);
+    setPhone(requiredContact.phone);
+    setEmail(requiredContact.email);
+    setAddress(requiredContact.address);
   }
   function saveContact() {}
 
