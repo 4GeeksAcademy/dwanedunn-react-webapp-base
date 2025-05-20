@@ -6,6 +6,12 @@ export const EditContact = () => {
   const { store, dispatch } = useGlobalReducer();
   const params = useParams();
   const navigate = useNavigate();
+
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
+
   function searchContactDetail(id) {
     // search store for the contact details (use the id from the url)
     const requiredContact = store.contacts.find((contact) => {
