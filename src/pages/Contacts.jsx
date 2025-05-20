@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import useGlobalReducer from '../hooks/useGlobalReducer'; // Custom hook for accessing the global state.
 
 export const Contacts = () => {
+  const navigate = useNavigate();
   const { store, dispatch } = useGlobalReducer();
   async function fetchContacts() {
     const url = `${store.BASE_URL}/${store.SLUG}`;
@@ -34,7 +35,10 @@ export const Contacts = () => {
     <ul>
       {(Array.isArray(store.contacts) ? store.contacts : []).map((contact) => {
         return (
-          <li key={contact.id}>
+          <li
+            key={contact.id}
+            onClick={(event) => navigate(`/contacts/${contact.id}`)}
+          >
             <h2>{contact.name}</h2>
             <p>{contact.email}</p>
             <p>{contact.phone}</p>
