@@ -22,7 +22,7 @@ export const AddContact = () => {
     };
     const url = `${store.BASE_URL}/${store.SLUG}/contacts`; // api url
 
-    // send request to api
+    // fetch post to api
     const response = await fetch(url, {
       method: 'POST',
       headers: {
@@ -31,10 +31,9 @@ export const AddContact = () => {
       },
       body: JSON.stringify(requestBody),
     });
+    const body = await response.json();
     if (!response.ok)
-      throw new Error(
-        `status: ${response.status}, message: ${response.statusText}`
-      );
+      throw new Error(`status: ${response.status}, message: ${body}`);
     // clear form
     setName('');
     setPhone('');
