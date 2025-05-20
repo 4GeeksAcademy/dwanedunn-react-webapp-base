@@ -8,7 +8,7 @@ export const AddContact = () => {
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
 
-  async function addContact() {
+  async function AddContact() {
     // validate inputs
     if (name === '' || phone === '' || email === '' || address === '')
       throw new Error('Please fill in all fields, check your inputs');
