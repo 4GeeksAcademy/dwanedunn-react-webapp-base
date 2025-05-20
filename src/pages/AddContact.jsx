@@ -1,8 +1,6 @@
-import { useState } from 'react';
-
+import React, { useState } from 'react';
 import useGlobalReducer from '../hooks/useGlobalReducer';
-// https://playground.4geeks.com/contact/agendas/dwane_dunn/contacts'
-// slug: dwane_dunn
+
 export const AddContact = () => {
   const { store, dispatch } = useGlobalReducer();
   const [name, setName] = useState('');
@@ -11,8 +9,10 @@ export const AddContact = () => {
   const [address, setAddress] = useState('');
 
   async function addContact() {
-    if (name === "" || phone === "" || email === "" || address === "") throw new Error("Please fill in all fields");
-    }
+    // validate inputs
+    if (name === '' || phone === '' || email === '' || address === '')
+      throw new Error('Please fill in all fields, check your inputs');
+    // }
     // create request body
     const requestBody = {
       name: name,
