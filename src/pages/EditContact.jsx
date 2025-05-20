@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import useGlobalReducer from '../hooks/useGlobalReducer';
 import { Navigate } from 'react-router-dom';
+import { func } from 'prop-types';
 export const EditContact = () => {
   const { store, dispatch } = useGlobalReducer();
   const params = useParams();
@@ -14,6 +15,7 @@ export const EditContact = () => {
     if (!requiredContact) navigate('/contacts'); // // if no contact found, navigate to contacts page
     // if contact found, update the input with its values
   }
+  function saveContact() {}
 
   useEffect(() => {
     if (!params.contactId) return; // if no contactId, return
@@ -58,9 +60,9 @@ export const EditContact = () => {
           <button
             type="button"
             className="btn btn-primary"
-            onClick={(e) => AddContact()}
+            onClick={(e) => saveContact()}
           >
-            Save New Contact
+            Save Edits to Contact
           </button>
         </form>
       </div>
