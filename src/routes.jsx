@@ -22,6 +22,7 @@ export const router = createBrowserRouter(
     <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>}>
       <Route path="/Contacts" element={<Contacts />} />
       <Route path="/AddContact" element={<AddContact />} />
+      <Route path="/contacts/:contactId" element={<EditContact />} />
     </Route>
   )
 );
