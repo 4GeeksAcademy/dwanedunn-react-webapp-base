@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 import { Layout } from './pages/Layout';
 
-// import { Contacts } from './pages/Contacts';
 import { Contacts } from './pages/Contacts';
 import { AddContact } from './pages/AddContact';
 
