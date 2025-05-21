@@ -26,7 +26,38 @@ export const EditContact = () => {
     setEmail(requiredContact.email);
     setAddress(requiredContact.address);
   }
-  function saveContact() {}
+  async function saveContact() {
+    // validate inputs
+    if (name === '' || phone === '' || email === '' || address === '')
+      throw new Error('Please fill in all fields, check your inputs');
+    // }
+    // create request body
+    const requestBody = {
+      name: name,
+      phone: phone,
+      email: email,
+      address: address,
+    };
+    const url = `${store.BASE_URL}/${store.SLUG}/contacts`; // api url
+
+    // fetch post to api
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // Authorization: `Bearer ${store.TOKEN}`,
+      },
+      body: JSON.stringify(requestBody),
+    });
+    const body = await response.json();
+    if (!response.ok)
+      throw new Error(`status: ${response.status}, message: ${body}`);
+    // clear form
+    setName('');
+    setPhone('');
+    setEmail('');
+    setAddress('');
+  }
 
   useEffect(() => {
     if (!params.contactId) return; // if no contactId, return
