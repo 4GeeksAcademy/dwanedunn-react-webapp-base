@@ -10,7 +10,7 @@ import useGlobalReducer from '../hooks/useGlobalReducer'; // Custom hook for acc
 export const Contacts = () => {
   const navigate = useNavigate();
   const { store, dispatch } = useGlobalReducer();
-  async function delteContact(id) {
+  async function deleteContact(id) {
     const url = `${store.BASE_URL}/${store.SLUG}/contacts/${id}`;
     const response = await fetch(url, {
       method: 'DELETE',
