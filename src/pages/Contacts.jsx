@@ -9,7 +9,7 @@ export const Contacts = () => {
   const navigate = useNavigate();
   const { store, dispatch } = useGlobalReducer();
   async function delteContact(id) {
-    const url = `${store.BASE_URL}/${store.SLUG}/contacts/${params.contactId}`;
+    const url = `${store.BASE_URL}/${store.SLUG}/contacts/${id}`;
     const response = await fetch(url, {
       method: 'DELETE',
       // headers: {
@@ -20,6 +20,7 @@ export const Contacts = () => {
     const body = await response.json();
     if (!response.ok)
       throw new Error(`status:${response.status},message:${body}`);
+    await fetchContacts();
   }
 
   async function fetchContacts() {
