@@ -38,11 +38,11 @@ export const EditContact = () => {
       email: email,
       address: address,
     };
-    const url = `${store.BASE_URL}/${store.SLUG}/contacts`; // api url
+    const url = `${store.BASE_URL}/${store.SLUG}/contacts/${params.contactId}`; // api url
 
     // fetch post to api
     const response = await fetch(url, {
-      method: 'POST',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
         // Authorization: `Bearer ${store.TOKEN}`,
