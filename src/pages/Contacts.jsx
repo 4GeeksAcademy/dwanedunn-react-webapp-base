@@ -18,6 +18,8 @@ export const Contacts = () => {
     });
     // body should be empty, but in case of error we can use it
     const body = await response.json();
+    if (!response.ok)
+      throw new Error(`status:${response.status},message:${body}`);
   }
 
   async function fetchContacts() {
