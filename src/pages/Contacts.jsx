@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import storeReducer from '../store';
 import { useNavigate } from 'react-router-dom';
+import { FaTrash } from 'react-icons/fa';
+
 // Import necessary components from react-router-dom and other parts of the application.
 import { Link } from 'react-router-dom';
 import useGlobalReducer from '../hooks/useGlobalReducer'; // Custom hook for accessing the global state.
@@ -58,6 +60,8 @@ export const Contacts = () => {
             <h2>{contact.name}</h2>
             <p>{contact.email}</p>
             <p>{contact.phone}</p>
+            <p>{contact.address}</p>
+            <FaTrash onClick={(event) => deleteContact(contact.id)} />
           </li>
         );
       })}
