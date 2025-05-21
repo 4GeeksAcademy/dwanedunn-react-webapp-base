@@ -19,7 +19,7 @@ export const EditContact = () => {
       if (contact.id == id) return true;
       return false;
     });
-    if (!requiredContact) navigate('/contacts'); // // if no contact found, navigate to contacts page
+    if (!requiredContact) navigate('/'); // // if no contact found, navigate to contacts page
     // if contact found, update the input with its values
     setName(requiredContact.name);
     setPhone(requiredContact.phone);
