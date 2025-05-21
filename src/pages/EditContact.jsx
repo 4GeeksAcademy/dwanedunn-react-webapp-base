@@ -52,11 +52,8 @@ export const EditContact = () => {
     const body = await response.json();
     if (!response.ok)
       throw new Error(`status: ${response.status}, message: ${body}`);
-    // clear form
-    setName('');
-    setPhone('');
-    setEmail('');
-    setAddress('');
+    // send user home
+    navigate('/contacts');
   }
 
   useEffect(() => {
