@@ -23,6 +23,7 @@ export const Contacts = () => {
     if (!response.ok)
       throw new Error(`status:${response.status},message:${body}`);
     await fetchContacts();
+    // navigate('/contacts');
   }
 
   async function fetchContacts() {
