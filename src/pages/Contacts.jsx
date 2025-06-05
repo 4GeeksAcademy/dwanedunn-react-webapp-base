@@ -32,10 +32,10 @@ export const Contacts = () => {
   }, []);
 
   return (
-    <section className="d-flex flex-column border border-danger">
+    <section className="d-flex flex-column">
       {(Array.isArray(store.contacts) ? store.contacts : []).map((contact) => {
         return (
-          <div key={contact.id}>
+          <div key={contact.id} className="d-flex justify-content-start">
             <div className="profile-img" style={{ width: '10rem' }}>
               <img
                 src="https://picsum.photos/80/80"
@@ -43,19 +43,13 @@ export const Contacts = () => {
                 className="rounded-circle"
               />
             </div>
-            <div
-              className="details border border-success"
-              style={{ width: '12rem' }}
-            >
+            <div className="details" style={{ width: '12rem' }}>
               <p>{contact.name}</p>
               <p>{contact.email}</p>
               <p>{contact.phone}</p>
               <p>{contact.address}</p>
             </div>
-            <div
-              className="actions border border-secondary"
-              style={{ width: '12rem' }}
-            >
+            <div className="actions" style={{ width: '12rem' }}>
               <div className="buttons d-flex justify-content-center">
                 <MdEdit
                   className="me-3"

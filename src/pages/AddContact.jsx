@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import useGlobalReducer from '../hooks/useGlobalReducer';
+import { Link } from 'react-router-dom';
 
 export const AddContact = () => {
   const { store, dispatch } = useGlobalReducer();
@@ -76,13 +77,15 @@ export const AddContact = () => {
             className="form-control"
             name="address"
           />
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClick={(e) => AddContact()}
-          >
-            Save New Contact
-          </button>
+          <Link to={'/'}>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={(e) => AddContact()}
+            >
+              Save New Contact
+            </button>
+          </Link>
         </form>
       </div>
     </div>
