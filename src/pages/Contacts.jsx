@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import storeReducer from '../store';
 import { useNavigate } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa';
+import { MdEdit } from 'react-icons/md';
 
 // Import necessary components from react-router-dom and other parts of the application.
 import { Link } from 'react-router-dom';
@@ -31,27 +32,33 @@ export const Contacts = () => {
   }, []);
 
   return (
-    <ul>
+    <section className="d-flex flex-column border border-danger">
       {(Array.isArray(store.contacts) ? store.contacts : []).map((contact) => {
         return (
-          <li
-            key={contact.id}
-            onClick={(event) => navigate(`/contacts/${contact.id}`)}
-            // onClick={() => console.log('dispatch delete_contact)
-          >
-            <h2>{contact.name}</h2>
-            <p>{contact.email}</p>
-            <p>{contact.phone}</p>
-            <p>{contact.address}</p>
-            <FaTrash onClick={(event) => deleteContact(contact.id)} />
-          </li>
+          <div key={contact.id}>
+            <div className="profile-img border border-primary">
+              <img src="https://picsum.photos/150/150" alt="picsum" />
+            </div>
+            <div className="details border border-success">
+              <p>{contact.name}</p>
+              <p>{contact.email}</p>
+              <p>{contact.phone}</p>
+              <p>{contact.address}</p>
+            </div>
+            <div className="actions border border-secondary">
+              <div className="buttons d-flex">
+                <MdEdit
+                  className="me-3"
+                  onClick={(event) => navigate(`/contacts/${contact.id}`)}
+                />
+                <FaTrash
+                  onClick={() => console.log('dispatch("delete_contact")')}
+                />
+              </div>
+            </div>
+          </div>
         );
       })}
-      {/* {(!store.contacts || store.contacts.length === 0) && (
-        <li>
-          <h2>No contacts found</h2>
-        </li>
-      )} */}
-    </ul>
+    </section>
   );
 };
