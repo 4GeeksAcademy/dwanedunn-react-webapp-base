@@ -36,17 +36,27 @@ export const Contacts = () => {
       {(Array.isArray(store.contacts) ? store.contacts : []).map((contact) => {
         return (
           <div key={contact.id}>
-            <div className="profile-img border border-primary">
-              <img src="https://picsum.photos/150/150" alt="picsum" />
+            <div className="profile-img" style={{ width: '10rem' }}>
+              <img
+                src="https://picsum.photos/80/80"
+                alt="picsum"
+                className="rounded-circle"
+              />
             </div>
-            <div className="details border border-success">
+            <div
+              className="details border border-success"
+              style={{ width: '12rem' }}
+            >
               <p>{contact.name}</p>
               <p>{contact.email}</p>
               <p>{contact.phone}</p>
               <p>{contact.address}</p>
             </div>
-            <div className="actions border border-secondary">
-              <div className="buttons d-flex">
+            <div
+              className="actions border border-secondary"
+              style={{ width: '12rem' }}
+            >
+              <div className="buttons d-flex justify-content-center">
                 <MdEdit
                   className="me-3"
                   onClick={(event) => navigate(`/contacts/${contact.id}`)}
