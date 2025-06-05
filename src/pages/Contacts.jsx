@@ -36,6 +36,13 @@ export const Contacts = () => {
       `https://playground.4geeks.com/contact/agendas/dwanedunn/contacts/${contact_id}`,
       { method: 'DELETE' }
     );
+    if (!response.ok) {
+      console.log('DELETE Failed');
+    }
+    // const result = await response.json();
+    // console.log('delete result', result);
+    fetchContacts();
+    return;
   }
 
   return (
