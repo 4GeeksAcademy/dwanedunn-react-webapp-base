@@ -31,6 +31,13 @@ export const Contacts = () => {
     fetchContacts();
   }, []);
 
+  async function deleteContact(contact_id) {
+    const response = await fetch(
+      `https://playground.4geeks.com/contact/agendas/dwanedunn/contacts/${contact_id}`,
+      { method: 'DELETE' }
+    );
+  }
+
   return (
     <section className="d-flex flex-column">
       {(Array.isArray(store.contacts) ? store.contacts : []).map((contact) => {
@@ -55,9 +62,7 @@ export const Contacts = () => {
                   className="me-3"
                   onClick={(event) => navigate(`/contacts/${contact.id}`)}
                 />
-                <FaTrash
-                  onClick={() => console.log('dispatch("delete_contact")')}
-                />
+                <FaTrash onClick={() => deleteContact(contact.id)} />
               </div>
             </div>
           </div>

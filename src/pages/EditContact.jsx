@@ -53,7 +53,7 @@ export const EditContact = () => {
     if (!response.ok)
       throw new Error(`status: ${response.status}, message: ${body}`);
     // send user home
-    navigate('/contacts');
+    navigate('/');
   }
 
   useEffect(() => {

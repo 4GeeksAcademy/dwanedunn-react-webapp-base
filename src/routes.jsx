@@ -22,7 +22,7 @@ export const router = createBrowserRouter(
     // Root Route: All navigation will start from here.
     <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>}>
       <Route path="/" element={<Contacts />} />
-      <Route path="/AddContact" element={<AddContact />} />
+      <Route path="/addContact" element={<AddContact />} />
       <Route path="/contacts/:contactId" element={<EditContact />} />
     </Route>
   )
