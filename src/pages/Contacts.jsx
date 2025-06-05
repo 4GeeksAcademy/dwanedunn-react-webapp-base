@@ -10,21 +10,6 @@ import useGlobalReducer from '../hooks/useGlobalReducer'; // Custom hook for acc
 export const Contacts = () => {
   const navigate = useNavigate();
   const { store, dispatch } = useGlobalReducer();
-  async function deleteContact(id) {
-    const url = `${store.BASE_URL}/${store.SLUG}/contacts/${id}`;
-    const response = await fetch(url, {
-      method: 'DELETE',
-      // headers: {
-      //   'Content-Type': 'application/json',
-      // Authorization: `Bearer ${store.TOKEN}`,
-    });
-    // body should be empty, but in case of error we can use it
-    const body = await response.json();
-    if (!response.ok)
-      throw new Error(`status:${response.status},message:${body}`);
-    await fetchContacts();
-    // navigate('/contacts');
-  }
 
   async function fetchContacts() {
     const url = `${store.BASE_URL}/${store.SLUG}`;
@@ -40,14 +25,10 @@ export const Contacts = () => {
       payload: body.contacts,
     });
   }
-
+  // Call the fetch only once on load
   useEffect(() => {
-    if (store.BASE_URL && store.SLUG) {
-      fetchContacts().catch((err) => {
-        console.error('Failed to fetch contacts:', err);
-      });
-    }
-  }, [store.BASE_URL, store.SLUG]);
+    fetchContacts();
+  }, []);
 
   return (
     <ul>

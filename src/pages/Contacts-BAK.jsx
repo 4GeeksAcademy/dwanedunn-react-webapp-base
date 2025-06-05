@@ -32,7 +32,7 @@ export const Contacts = () => {
     const body = await response.json();
 
     if (!response.ok) {
-      console.log('Error fetching contacts:', body);
+      console.log('Error fetching contacts:', body.message);
       throw new Error(`status:${response.status},message:${body}`);
     }
     dispatch({
