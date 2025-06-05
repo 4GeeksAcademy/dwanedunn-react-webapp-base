@@ -47,11 +47,11 @@ export const Contacts = () => {
           </li>
         );
       })}
-      {(!store.contacts || store.contacts.length === 0) && (
+      {/* {(!store.contacts || store.contacts.length === 0) && (
         <li>
           <h2>No contacts found</h2>
         </li>
-      )}
+      )} */}
     </ul>
   );
 };

@@ -1,4 +1,4 @@
-n// Import necessary components and functions from react-router-dom.
+// Import necessary components and functions from react-router-dom.
 
 import {
   createBrowserRouter,
