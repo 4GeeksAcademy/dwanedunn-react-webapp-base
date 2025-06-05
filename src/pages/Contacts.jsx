@@ -25,7 +25,7 @@ export const Contacts = () => {
       payload: body.contacts,
     });
   }
-  // Call the fetch only once on load
+  // Call the fetch only once on load -TODO: WORKING!
   useEffect(() => {
     fetchContacts();
   }, []);
@@ -37,7 +37,7 @@ export const Contacts = () => {
           <li
             key={contact.id}
             onClick={(event) => navigate(`/contacts/${contact.id}`)}
-            // onClick={(event) => deleteContact(contact.id)} // delete click
+            // onClick={() => console.log('dispatch delete_contact)
           >
             <h2>{contact.name}</h2>
             <p>{contact.email}</p>
