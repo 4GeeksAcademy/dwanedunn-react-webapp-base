@@ -14,17 +14,45 @@ export const Contacts = () => {
 
   async function fetchContacts() {
     const url = `${store.BASE_URL}/${store.SLUG}`;
+    const contact_url = `${store.BASE_URL}/${store.SLUG}/contacts`;
     const response = await fetch(url);
     const body = await response.json();
 
     if (!response.ok) {
       console.log('Error fetching contacts:', body); // log error, then post the slug
       // throw new Error(`status:${response.status},message:${body}`);
+      // add the slug
       fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ slug: 'dwanedunn' }),
       });
+
+      fetch(contact_url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(
+          {
+            name: 'Stephen Donaldson',
+            phone: '5556667777',
+            email: 'stephen@gmail.not',
+            address: '1234 Greek St',
+          },
+          {
+            name: 'Susy Sanshez',
+            phone: '2223335555',
+            email: 'sanchez@gmail.not',
+            address: '1234 Miami Beach',
+          },
+          {
+            name: 'Eric Marks',
+            phone: '5557778888',
+            email: 'eric@gmail.not',
+            address: '4321 Coconut Grove',
+          }
+        ),
+      });
+
       fetchContacts();
     }
     dispatch({
