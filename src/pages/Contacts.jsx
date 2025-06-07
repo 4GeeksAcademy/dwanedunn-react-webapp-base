@@ -28,30 +28,30 @@ export const Contacts = () => {
         body: JSON.stringify({ slug: 'dwanedunn' }),
       });
 
-      fetch(contact_url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(
-          {
-            name: 'Stephen Donaldson',
-            phone: '5556667777',
-            email: 'stephen@gmail.not',
-            address: '1234 Greek St',
-          },
-          {
-            name: 'Susy Sanshez',
-            phone: '2223335555',
-            email: 'sanchez@gmail.not',
-            address: '1234 Miami Beach',
-          },
-          {
-            name: 'Eric Marks',
-            phone: '5557778888',
-            email: 'eric@gmail.not',
-            address: '4321 Coconut Grove',
-          }
-        ),
-      });
+      // fetch(contact_url, {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(
+      //     {
+      //       name: 'Stephen Donaldson',
+      //       phone: '5556667777',
+      //       email: 'stephen@gmail.not',
+      //       address: '1234 Greek St',
+      //     },
+      //     {
+      //       name: 'Susy Sanshez',
+      //       phone: '2223335555',
+      //       email: 'sanchez@gmail.not',
+      //       address: '1234 Miami Beach',
+      //     },
+      //     {
+      //       name: 'Eric Marks',
+      //       phone: '5557778888',
+      //       email: 'eric@gmail.not',
+      //       address: '4321 Coconut Grove',
+      //     }
+      //   ),
+      // });
 
       fetchContacts();
     }
