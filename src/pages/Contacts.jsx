@@ -18,8 +18,14 @@ export const Contacts = () => {
     const body = await response.json();
 
     if (!response.ok) {
-      console.log('Error fetching contacts:', body);
-      throw new Error(`status:${response.status},message:${body}`);
+      console.log('Error fetching contacts:', body); // log error, then post the slug
+      // throw new Error(`status:${response.status},message:${body}`);
+      fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug: 'dwanedunn' }),
+      });
+      fetchContacts();
     }
     dispatch({
       type: 'SET_CONTACTS',
