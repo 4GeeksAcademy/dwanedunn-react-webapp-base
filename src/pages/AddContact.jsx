@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useGlobalReducer from '../hooks/useGlobalReducer';
 import { Link } from 'react-router-dom';
+import { fetchContacts } from '../hooks/Actions';
 
 export const AddContact = () => {
   const { store, dispatch } = useGlobalReducer();
@@ -40,6 +41,7 @@ export const AddContact = () => {
     setPhone('');
     setEmail('');
     setAddress('');
+    fetchContacts(store, dispatch)
   }
   return (
     <div className="row">

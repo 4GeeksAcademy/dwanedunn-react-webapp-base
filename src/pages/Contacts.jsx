@@ -3,7 +3,7 @@ import storeReducer from '../store';
 import { useNavigate } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa';
 import { MdEdit } from 'react-icons/md';
-
+import {fetchContacts} from '../hooks/Actions'
 // Import necessary components from react-router-dom and other parts of the application.
 import { Link } from 'react-router-dom';
 import useGlobalReducer from '../hooks/useGlobalReducer'; // Custom hook for accessing the global state.
@@ -12,57 +12,10 @@ export const Contacts = () => {
   const navigate = useNavigate();
   const { store, dispatch } = useGlobalReducer();
 
-  async function fetchContacts() {
-    const url = `${store.BASE_URL}/${store.SLUG}`;
-    const contact_url = `${store.BASE_URL}/${store.SLUG}/contacts`;
-    const response = await fetch(url);
-    const body = await response.json();
-
-    if (!response.ok) {
-      console.log('Error fetching contacts:', body); // log error, then post the slug
-      // throw new Error(`status:${response.status},message:${body}`);
-      // add the slug
-      fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ slug: 'dwanedunn' }),
-      });
-
-      // fetch(contact_url, {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(
-      //     {
-      //       name: 'Stephen Donaldson',
-      //       phone: '5556667777',
-      //       email: 'stephen@gmail.not',
-      //       address: '1234 Greek St',
-      //     },
-      //     {
-      //       name: 'Susy Sanshez',
-      //       phone: '2223335555',
-      //       email: 'sanchez@gmail.not',
-      //       address: '1234 Miami Beach',
-      //     },
-      //     {
-      //       name: 'Eric Marks',
-      //       phone: '5557778888',
-      //       email: 'eric@gmail.not',
-      //       address: '4321 Coconut Grove',
-      //     }
-      //   ),
-      // });
-
-      fetchContacts();
-    }
-    dispatch({
-      type: 'SET_CONTACTS',
-      payload: body.contacts,
-    });
-  }
+ 
   // Call the fetch only once on load -TODO: WORKING!
   useEffect(() => {
-    fetchContacts();
+    fetchContacts(store, dispatch);
   }, []);
 
   async function deleteContact(contact_id) {
@@ -75,7 +28,7 @@ export const Contacts = () => {
     }
     // const result = await response.json();
     // console.log('delete result', result);
-    fetchContacts();
+    fetchContacts(store, dispatch);
     return;
   }
 
